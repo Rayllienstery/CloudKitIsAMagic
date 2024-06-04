@@ -24,6 +24,13 @@ class ViewController: UITabBarController {
 
     // MARK: - Actions
     @objc private func routeToAddNote() {
-        
+        let view = NoteEditorView()
+            .environment(\.managedObjectContext, .current)
+            .modelContainer(.current)
+        present(UIHostingController(rootView: view), animated: true)
     }
+}
+
+#Preview {
+    UINavigationController(rootViewController: ViewController())
 }
