@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC041CFB2C0FD30800BCAAF5 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC041CFA2C0FD30800BCAAF5 /* DashboardView.swift */; };
+		BC041CFD2C0FD52E00BCAAF5 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC041CFC2C0FD52E00BCAAF5 /* DashboardViewController.swift */; };
 		BC3C8E812C0FAE0200EE8F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3C8E802C0FAE0200EE8F61 /* AppDelegate.swift */; };
 		BC3C8E832C0FAE0200EE8F61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3C8E822C0FAE0200EE8F61 /* SceneDelegate.swift */; };
 		BC3C8E852C0FAE0200EE8F61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3C8E842C0FAE0200EE8F61 /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC041CFA2C0FD30800BCAAF5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		BC041CFC2C0FD52E00BCAAF5 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		BC3C8E7D2C0FAE0200EE8F61 /* CloudKitIsAMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitIsAMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3C8E802C0FAE0200EE8F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC3C8E822C0FAE0200EE8F61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 		BCF05DD62C0FC6BD009DF1D5 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				BC041CFC2C0FD52E00BCAAF5 /* DashboardViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		BCF05DD72C0FC6C3009DF1D5 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC041CFA2C0FD30800BCAAF5 /* DashboardView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				BCBC79C92C0FB0D10038B223 /* CoreDataModel.xcdatamodeld in Sources */,
 				BC3C8E832C0FAE0200EE8F61 /* SceneDelegate.swift in Sources */,
 				BCBC79D62C0FC0710038B223 /* CoreDataNote.swift in Sources */,
+				BC041CFB2C0FD30800BCAAF5 /* DashboardView.swift in Sources */,
+				BC041CFD2C0FD52E00BCAAF5 /* DashboardViewController.swift in Sources */,
 				BCBC79D22C0FB46B0038B223 /* Persistence.swift in Sources */,
 				BCF05DDB2C0FC7C8009DF1D5 /* NoteEditorView.swift in Sources */,
 			);

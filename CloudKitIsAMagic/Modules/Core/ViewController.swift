@@ -14,12 +14,27 @@ class ViewController: UITabBarController {
         super.viewDidLoad()
 
         self.configureNavigationController()
+        self.configureScreen()
     }
 
     // MARK: - Private
     private func configureNavigationController() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(systemName: "plus"), style: .plain,
                                                                  target: self, action: #selector(routeToAddNote))
+    }
+
+    private func configureScreen() {
+        let swiftUIView = UIHostingController(rootView: DashboardView()
+            .environment(\.managedObjectContext, .current)
+            .modelContainer(.current))
+        swiftUIView.tabBarItem.image = .init(systemName: "swift")
+        swiftUIView.tabBarItem.title = "SwiftUI"
+
+        let uiKitController = DashboardViewController()
+        uiKitController.tabBarItem.image = .init(systemName: "mosaic.fill")
+        uiKitController.tabBarItem.title = "UIKit"
+
+        self.viewControllers = [ swiftUIView, uiKitController ]
     }
 
     // MARK: - Actions

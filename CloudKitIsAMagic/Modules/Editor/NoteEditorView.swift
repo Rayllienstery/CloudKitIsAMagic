@@ -84,6 +84,8 @@ struct NoteEditorView: View {
     private func addCoreDataNote() {
         let newCoreDataNote = CoreDataNote(context: coreDataContext)
         newCoreDataNote.title = title
+        newCoreDataNote.colorIndex = Int16(selectedColorIndex)
+        newCoreDataNote.id = .init()
         try? coreDataContext.save()
         dismiss()
     }
