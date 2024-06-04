@@ -17,6 +17,8 @@
 		BCBC79D22C0FB46B0038B223 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBC79D12C0FB46B0038B223 /* Persistence.swift */; };
 		BCBC79D62C0FC0710038B223 /* CoreDataNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBC79D52C0FC0710038B223 /* CoreDataNote.swift */; };
 		BCBC79D92C0FC0B90038B223 /* SwiftDataNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBC79D82C0FC0B90038B223 /* SwiftDataNote.swift */; };
+		BCF05DDB2C0FC7C8009DF1D5 /* NoteEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF05DDA2C0FC7C8009DF1D5 /* NoteEditorView.swift */; };
+		BCF05DDE2C0FCAA4009DF1D5 /* NoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF05DDD2C0FCAA4009DF1D5 /* NoteColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		BCBC79D32C0FB8F70038B223 /* CloudKitIsAMagic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitIsAMagic.entitlements; sourceTree = "<group>"; };
 		BCBC79D52C0FC0710038B223 /* CoreDataNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNote.swift; sourceTree = "<group>"; };
 		BCBC79D82C0FC0B90038B223 /* SwiftDataNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataNote.swift; sourceTree = "<group>"; };
+		BCF05DDA2C0FC7C8009DF1D5 /* NoteEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorView.swift; sourceTree = "<group>"; };
+		BCF05DDD2C0FCAA4009DF1D5 /* NoteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 		BCBC79CA2C0FB0D80038B223 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BCF05DD52C0FC6B5009DF1D5 /* Dashboard */,
 				BCBC79CE2C0FB1330038B223 /* Core */,
+				BCF05DD82C0FC71F009DF1D5 /* Editor */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -105,6 +111,7 @@
 		BCBC79CD2C0FB1280038B223 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCF05DDC2C0FCA99009DF1D5 /* Colors */,
 				BCBC79D72C0FC0A10038B223 /* SwiftData Entities */,
 				BCBC79D42C0FC04F0038B223 /* CoreData Entities */,
 				BCBC79C72C0FB0D10038B223 /* CoreDataModel.xcdatamodeld */,
@@ -151,6 +158,45 @@
 				BCBC79D82C0FC0B90038B223 /* SwiftDataNote.swift */,
 			);
 			path = "SwiftData Entities";
+			sourceTree = "<group>";
+		};
+		BCF05DD52C0FC6B5009DF1D5 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BCF05DD62C0FC6BD009DF1D5 /* UIKit */,
+				BCF05DD72C0FC6C3009DF1D5 /* SwiftUI */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		BCF05DD62C0FC6BD009DF1D5 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		BCF05DD72C0FC6C3009DF1D5 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		BCF05DD82C0FC71F009DF1D5 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				BCF05DDA2C0FC7C8009DF1D5 /* NoteEditorView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		BCF05DDC2C0FCA99009DF1D5 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				BCF05DDD2C0FCAA4009DF1D5 /* NoteColor.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,10 +273,12 @@
 				BCBC79D92C0FC0B90038B223 /* SwiftDataNote.swift in Sources */,
 				BC3C8E852C0FAE0200EE8F61 /* ViewController.swift in Sources */,
 				BC3C8E812C0FAE0200EE8F61 /* AppDelegate.swift in Sources */,
+				BCF05DDE2C0FCAA4009DF1D5 /* NoteColor.swift in Sources */,
 				BCBC79C92C0FB0D10038B223 /* CoreDataModel.xcdatamodeld in Sources */,
 				BC3C8E832C0FAE0200EE8F61 /* SceneDelegate.swift in Sources */,
 				BCBC79D62C0FC0710038B223 /* CoreDataNote.swift in Sources */,
 				BCBC79D22C0FB46B0038B223 /* Persistence.swift in Sources */,
+				BCF05DDB2C0FC7C8009DF1D5 /* NoteEditorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
