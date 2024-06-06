@@ -6,12 +6,59 @@
 //
 
 import SwiftUI
+import SwiftData
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UITableViewController {
+    var swiftDataNotes: [SwiftDataNote] = []
+    var coreDataNotes: [CoreDataNote] = []
+
+    override init(style: UITableView.Style) {
+        super.init(style: style)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "UIKit Controller"
+
+        self.fetchData()
+        self.initDataFlow()
     }
+
+    private func initDataFlow() {
+        NotificationCenter.default.addObserver(forName: .dataFlowUpdated, object: nil, queue: .main) { [weak self] _ in
+            guard let self else { return }
+            fetchData()
+        }
+    }
+
+    private func fetchData() {
+        Task {
+            do {
+                let swiftDataContext = PersistenceController.shared.sdContainer.mainContext
+                self.swiftDataNotes = try swiftDataContext.fetch(FetchDescriptor<SwiftDataNote>())
+                DispatchQueue.main.async { self.tableView.reloadData() }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+
+        Task {
+            do {
+                let coreDataContext = PersistenceController.shared.cdContext
+                self.coreDataNotes = try coreDataContext.fetch(CoreDataNote.fetchRequest())
+                DispatchQueue.main.async { self.tableView.reloadData() }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+}
+
+enum DashboardSections: Int, CaseIterable {
+    case swiftData, coreData
 }
 
 #Preview {

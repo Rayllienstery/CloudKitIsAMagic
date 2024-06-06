@@ -30,7 +30,7 @@ class ViewController: UITabBarController {
         swiftUIView.tabBarItem.image = .init(systemName: "swift")
         swiftUIView.tabBarItem.title = "SwiftUI"
 
-        let uiKitController = DashboardViewController()
+        let uiKitController = DashboardViewController(style: .insetGrouped)
         uiKitController.tabBarItem.image = .init(systemName: "mosaic.fill")
         uiKitController.tabBarItem.title = "UIKit"
 

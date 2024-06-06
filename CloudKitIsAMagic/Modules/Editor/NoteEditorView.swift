@@ -16,6 +16,9 @@ struct NoteEditorView: View {
     @State var title: String = ""
     @State var selectedColorIndex: Int = 0
 
+    @State var error: VerifyError?
+    @State var errorAlertIsPresented: Bool = false
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -24,6 +27,9 @@ struct NoteEditorView: View {
                 addButtons
             }
             .navigationTitle("Create a new Note")
+            .alert(isPresented: $errorAlertIsPresented, error: error) {
+                Button("Ok") { }
+            }
         }
     }
 
@@ -82,19 +88,31 @@ struct NoteEditorView: View {
     }
 
     private func addCoreDataNote() {
-        let newCoreDataNote = CoreDataNote(context: coreDataContext)
-        newCoreDataNote.title = title
-        newCoreDataNote.colorIndex = Int16(selectedColorIndex)
-        newCoreDataNote.id = .init()
-        try? coreDataContext.save()
-        dismiss()
+        do {
+            try verify()
+            let newCoreDataNote = CoreDataNote(context: coreDataContext)
+            newCoreDataNote.title = title
+            newCoreDataNote.colorIndex = Int16(selectedColorIndex)
+            newCoreDataNote.id = .init()
+            try? coreDataContext.save()
+            NotificationCenter.default.post(name: .dataFlowUpdated, object: nil)
+            dismiss()
+        } catch {
+            self.error = error as? VerifyError
+        }
     }
 
     private func addSwiftDataNote() {
-        let newSwiftDataNote = SwiftDataNote(title: title, colorIndex: selectedColorIndex)
-        swiftDataContext.insert(newSwiftDataNote)
-        try? swiftDataContext.save()
-        dismiss()
+        do {
+            try verify()
+            let newSwiftDataNote = SwiftDataNote(title: title, colorIndex: selectedColorIndex)
+            swiftDataContext.insert(newSwiftDataNote)
+            try? swiftDataContext.save()
+            NotificationCenter.default.post(name: .dataFlowUpdated, object: nil)
+            dismiss()
+        } catch {
+            self.error = error as? VerifyError
+        }
     }
 }
 

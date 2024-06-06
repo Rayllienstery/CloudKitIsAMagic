@@ -53,6 +53,7 @@ struct DashboardView: View {
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button("Delete") { deleteCoreDataNote(note) }
+                        .tint(.red)
                 }
             }
         } header: {
@@ -73,8 +74,4 @@ struct DashboardView: View {
 
 #Preview {
     UINavigationController(rootViewController: ViewController())
-}
-
-#Preview {
-    DashboardView()
 }
