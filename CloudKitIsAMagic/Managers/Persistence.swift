@@ -47,7 +47,8 @@ private extension NSPersistentCloudKitContainer {
             self.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         } else {
             let url = URL.storeURL(for: "group.com.KKolosov.CloudKitIsAMagic", databaseName: databaseName)
-            self.persistentStoreDescriptions.first!.url = url
+            self.persistentStoreDescriptions.first?.url = url
+            self.persistentStoreDescriptions.first?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
         }
         self.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
