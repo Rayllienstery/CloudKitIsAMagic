@@ -81,3 +81,7 @@ extension DashboardViewController {
         return .init(actions: [deleteAction])
     }
 }
+
+private enum DashboardSections: Int, CaseIterable {
+    case swiftData, coreData
+}

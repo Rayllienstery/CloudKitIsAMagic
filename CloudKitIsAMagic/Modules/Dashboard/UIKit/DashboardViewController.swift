@@ -57,10 +57,6 @@ class DashboardViewController: UITableViewController {
     }
 }
 
-enum DashboardSections: Int, CaseIterable {
-    case swiftData, coreData
-}
-
 #Preview {
     UINavigationController(rootViewController: ViewController())
 }
