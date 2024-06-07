@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct DashboardView: View {
-    @Query var swiftDataNotes: [SwiftDataNote]
-    @FetchRequest(sortDescriptors: []) var coreDataNotes: FetchedResults<CoreDataNote>
+    @Query(animation: .default) var swiftDataNotes: [SwiftDataNote]
+    @FetchRequest(sortDescriptors: [], animation: .default) var coreDataNotes: FetchedResults<CoreDataNote>
 
     @Environment(\.managedObjectContext) var coreDataContext
     @Environment(\.modelContext) var swiftDataContext
@@ -34,6 +34,7 @@ struct DashboardView: View {
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button("Delete") { deleteSwiftDataNote(note) }
+                        .tint(.red)
                 }
             }
         } header: {
@@ -49,7 +50,7 @@ struct DashboardView: View {
                     Image(systemName: "circle.fill")
                         .imageScale(.small)
                         .foregroundStyle(Color(NoteColor(rawValue: Int(note.colorIndex))!.colorRepresentation))
-                    Text(note.title!)
+                    Text(note.title ?? "")
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                     Button("Delete") { deleteCoreDataNote(note) }
